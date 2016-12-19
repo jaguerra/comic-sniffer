@@ -21,7 +21,7 @@ public class Main {
 
 	get("/random", (request, response) -> {
 			Map<String, Object> attributes = new HashMap<>();
-			ImageFetcher imageFetcher = new ImageFetcher(loggerProvider);
+			ImageFetcher imageFetcher = new ImageFetcher(loggerProvider, System.getenv("AGE_COOKIE"));
 			attributes.put("imageUri", imageFetcher.getImageUri());
 
 			return new ModelAndView(attributes, "index.ftl");
